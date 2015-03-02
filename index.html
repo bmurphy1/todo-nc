@@ -12,12 +12,14 @@
     <script type="text/javascript" src="js/entities/todo.js"></script>
     <script type="text/javascript" src="js/todo/list/list_view.js"></script>
     <script type="text/javascript" src="js/todo/list/list_controller.js"></script>
+    <script type="text/javascript" src="js/todo/new/new_view.js"></script>
     <script type="text/javascript" src="js/todo/new/new_controller.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
     <div id="container"></div>
     <div id="todos"></div>
+    <div id="todo-new"></div>
     
 <!-- Todo List View -->
     <script type="text/template" id="todo-list-view">
@@ -34,6 +36,12 @@
     <script type="text/template" id="todo-item-view">
       <td><%= description %></td>
       <td><input id="is-complete" type="checkbox"></td>
+    </script>
+    
+<!-- New Todo View -->
+    <script type="text/template" id="todo-new-view">
+      <input type="text" id="description" name="description" placeholder="description"></input>
+      <input type="submit" id="submit" value="save"></input>
     </script>
     
 <!-- Start App -->
