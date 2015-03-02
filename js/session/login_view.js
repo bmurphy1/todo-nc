@@ -10,6 +10,7 @@ LoginView = Marionette.ItemView.extend({
     'email': '#email',
     'password': '#password',
     'login': '#login',
+    'errors': '#login-errors'
   },
   
   events: {
@@ -32,4 +33,8 @@ LoginView = Marionette.ItemView.extend({
       }
     });
   },
+  
+  loginErrors: function(errorText, view) {
+    this.ui.errors.text(errorText);
+  }
 });
