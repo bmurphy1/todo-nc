@@ -3,6 +3,8 @@ TodoApp = new Marionette.Application();
 TodoApp.addRegions({
     todoRegion: '#container',
     todoNewRegion: '#todo-new'
+    todoNewRegion: '#todo-new',
+    todoEditRegion: '#todo-edit'
 });
 
 TodoApp.commands.setHandler('todo:list', function() {
