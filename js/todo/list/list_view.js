@@ -3,11 +3,19 @@ TodoItemView = Marionette.ItemView.extend({
   tagName: 'tr',
   className: 'todo',
   
-  ui: { checkbox: ':checkbox' },
-  events: { 'click @ui.checkbox': 'toggleComplete' },
+  ui: { checkbox: ':checkbox',
+            edit: '#edit' },
+  
+  events: { 'click @ui.checkbox': 'toggleComplete',
+                'click @ui.edit': 'editTodo'},
   
   onRender: function() {
     this.ui.checkbox.prop('checked', this.model.get('is_complete'));
+  },
+  
+  editTodo: function() {
+    console.log('edt');
+    TodoApp.execute('todo:edit', this.model);
   },
   
   toggleComplete: function() { this.model.toggleComplete(); }
