@@ -14,7 +14,6 @@ TodoItemView = Marionette.ItemView.extend({
   },
   
   editTodo: function() {
-    console.log('edt');
     TodoApp.execute('todo:edit', this.model);
   },
   
