@@ -15,8 +15,8 @@ TodoEditView = Marionette.ItemView.extend({
     var model = this.model;
     var view = this;
     Todo.updateTodo({
-      todo: {
-        todoId: model.get('id'),
+      todoId: model.get('id'),
+      data: {
         description: description,
         is_complete: model.get('is_complete')
       },
