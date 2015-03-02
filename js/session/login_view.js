@@ -10,11 +10,13 @@ LoginView = Marionette.ItemView.extend({
     'email': '#email',
     'password': '#password',
     'loginButton': '#login-button',
+    'signupButton':'#signup-button',
     'errors': '#errors'
   },
   
   events: {
-    'click @ui.loginButton': 'login'
+    'click @ui.loginButton': 'login',
+    'click @ui.signupButton': 'signup'
   },
   
   login: function () {
@@ -30,6 +32,17 @@ LoginView = Marionette.ItemView.extend({
       error:    function(xhr)  {
         view.showErrors(JSON.parse(xhr.responseText).error);
       }
+    });
+  },
+  
+  signup: function() {
+    var view = this;
+    
+    Todo.createUser({
+      email:    view.ui.email.val(),
+      password: view.ui.password.val(),
+      success:  function(user) { console.log(user) },
+      error:    function(xhr)  { console.log(xhr) }
     });
   },
   
