@@ -6,6 +6,9 @@ TodoApp.addRegions({
     todoEditRegion: '#todo-edit',
     loginRegion: '#login'
 });
+
+TodoApp.on('start', function(options) {
+  new SessionController();
 });
 
 TodoApp.commands.setHandler('todo:list', function() {
