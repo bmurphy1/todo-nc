@@ -9,11 +9,31 @@
     <script type="text/javascript" src="libs/backbone.marionette.js"></script>
     
     <!-- Our Code -->
+    <script type="text/javascript" src="js/entities/todo.js"></script>
+    <script type="text/javascript" src="js/todo/list/list_view.js"></script>
     <script type="text/javascript" src="js/todo/list/list_controller.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
     <div id="container"></div>
     <div id="todos"></div>
+    
+<!-- Todo List View -->
+    <script type="text/template" id="todo-list-view">
+      <thead>
+        <tr class="header">
+          <th>Description</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </script>
+    
+<!-- Todo Item View -->
+    <script type="text/template" id="todo-item-view">
+      <td><%= description %></td>
+      <td><input id="is-complete" type="checkbox"></td>
+    </script>
+    
   </body>
 </html>
