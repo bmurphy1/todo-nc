@@ -25,5 +25,10 @@ TodoListView = Marionette.CompositeView.extend({
   tagName: 'table',
   className: 'table',
   id: 'todos',
-  childView: TodoItemView
+  childView: TodoItemView,
+  ui: {'tbody': 'tbody'},
+  
+  onRender: function() {
+    this.ui.tbody.sortable();
+  }
 });
