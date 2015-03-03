@@ -1,6 +1,7 @@
 TodoListController = Marionette.Controller.extend({
   initialize: function() {
-    var todoList = new TodoList();
+    this.todoList = new TodoList();
+    var todoList = this.todoList;
       Todo.loadTodos({
         success: function(todos) { 
           todoList.reset(todos);
@@ -8,7 +9,11 @@ TodoListController = Marionette.Controller.extend({
         error: function(xhr) {console.log('error')}
       });
 
-    var todoListView = new TodoListView({collection: todoList});
-    TodoApp.todoRegion.show(todoListView);
+    this.todoListView = new TodoListView({collection: this.todoList});
+    TodoApp.todoRegion.show(this.todoListView);
+  },
+  
+  onDestroy: function() {
+    this.todoListView.destroy();
   }
 });
