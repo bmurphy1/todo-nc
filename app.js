@@ -1,6 +1,7 @@
 TodoApp = new Marionette.Application();
 
 TodoApp.addRegions({
+    headerRegion: '#header',
     todoRegion: '#container',
     todoNewRegion: '#todo-new',
     todoEditRegion: '#todo-edit',
@@ -13,8 +14,15 @@ TodoApp.on('start', function(options) {
 
 TodoApp.commands.setHandler('todo:list', function() {
   window.todoListController = new TodoListController();
+  window.headerController = new HeaderController();
 });
 
 TodoApp.commands.setHandler('todo:edit', function(model) {
   window.todoEditController = new TodoEditController(model);
+});
+
+TodoApp.commands.setHandler('logout', function() {
+  window.todoListController.destroy();
+  window.headerController.destroy();
+  new SessionController();
 });

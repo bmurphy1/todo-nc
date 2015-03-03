@@ -20,13 +20,25 @@
     <script type="text/javascript" src="js/todo/edit/edit_controller.js"></script>
     <script type="text/javascript" src="js/session/session_controller.js"></script>
     <script type="text/javascript" src="js/session/login_view.js"></script>
+    <script type="text/javascript" src="js/header/header_controller.js"></script>
+    <script type="text/javascript" src="js/header/header_view.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
   <body>
+    <div id="header"></div>
     <div id="login"></div>
     <div id="container"></div>
     <div id="todo-new"></div>
     <div id="todo-edit"></div>
+    
+<!-- Header -->
+    <script type="text/template" id="header-view">
+      <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+          <li><button type="submit" id="logout-button" class="btn btn-default">Logout</button></li>
+        </ul>
+      </nav>
+    </script>
     
 <!-- Login View -->
     <script type="text/template" id="login-view">
