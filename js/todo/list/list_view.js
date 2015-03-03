@@ -23,6 +23,7 @@ TodoItemView = Marionette.ItemView.extend({
 TodoListView = Marionette.CompositeView.extend({
   template: '#todo-list-view',
   tagName: 'table',
+  className: 'table',
   id: 'todos',
   childView: TodoItemView
 });

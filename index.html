@@ -25,7 +25,6 @@
   <body>
     <div id="login"></div>
     <div id="container"></div>
-    <div id="todos"></div>
     <div id="todo-new"></div>
     <div id="todo-edit"></div>
     
@@ -42,7 +41,7 @@
 <!-- Todo List View -->
     <script type="text/template" id="todo-list-view">
       <thead>
-        <tr class="header">
+        <tr>
           <th>Description</th>
           <th>Completed</th>
         </tr>
@@ -54,7 +53,7 @@
     <script type="text/template" id="todo-item-view">
       <td><%= description %></td>
       <td><input id="is-complete" type="checkbox"></td>
-      <Td><input id="edit" type="button" value="edit"></td>
+      <Td><input id="edit" class="btn btn-xs" type="button" value="edit"></td>
     </script>
     
 <!-- New Todo View -->
