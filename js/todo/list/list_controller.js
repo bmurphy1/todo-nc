@@ -1,14 +1,9 @@
 TodoListController = Marionette.Controller.extend({
   initialize: function() {
+    
     this.todoList = new TodoList();
-    var todoList = this.todoList;
-      Todo.loadTodos({
-        success: function(todos) { 
-          todoList.reset(todos);
-        },
-        error: function(xhr) {console.log('error')}
-      });
-
+    this.todoList.fetch();
+    
     this.todoListView = new TodoListView({collection: this.todoList});
     TodoApp.todoRegion.show(this.todoListView);
   },
