@@ -1,4 +1,4 @@
-LoginView = Marionette.ItemView.extend({
+SessionView = Marionette.ItemView.extend({
   initialize: function() {
     window.loginView = this;
   },
@@ -7,11 +7,14 @@ LoginView = Marionette.ItemView.extend({
   id: 'login-view-form',
   
   ui: {
-    'email': '#email',
-    'password': '#password',
+    'loginEmail': '#login-email',
+    'loginPassword': '#login-password',
+    'signupEmail': '#signup-email',
+    'signupPassword': '#signup-password',
     'loginButton': '#login-button',
     'signupButton':'#signup-button',
-    'notice': '#notice'
+    'loginNotice': '#login-notice',
+    'signupNotice': '#signup-notice'
   },
   
   events: {
@@ -23,14 +26,14 @@ LoginView = Marionette.ItemView.extend({
     var view = this;
     
     Todo.startSession({
-      email:    view.ui.email.val(),
-      password: view.ui.password.val(),
+      email:    view.ui.loginEmail.val(),
+      password: view.ui.loginPassword.val(),
       success:  function(user) { 
         view.destroy();
         TodoApp.execute('todo:list');
       },
       error:    function(xhr)  {
-        view.showNotice(JSON.parse(xhr.responseText).error);
+        view.showLoginNotice(JSON.parse(xhr.responseText).error);
       }
     });
   },
@@ -39,24 +42,28 @@ LoginView = Marionette.ItemView.extend({
     var view = this;
     
     Todo.createUser({
-      email:    view.ui.email.val(),
-      password: view.ui.password.val(),
+      email:    view.ui.signupEmail.val(),
+      password: view.ui.signupPassword.val(),
       success:  function(user) {
-        view.showNotice('User successfully created. Please login.');
-        view.clearFields();
+        view.showSignupNotice('User successfully created. Please login.');
+        view.clearSignupFields();
       },
       error:    function(xhr)  {
-        view.showNotice(JSON.parse(xhr.responseText).email);
+        view.showSignupNotice(JSON.parse(xhr.responseText).email);
       }
     });
   },
   
-  showNotice: function(noticeText) {
-    this.ui.notice.text(noticeText);
+  showLoginNotice: function(noticeText) {
+    this.ui.loginNotice.text(noticeText);
   },
   
-  clearFields: function() {
-    this.ui.email.val('');
-    this.ui.password.val('');
+  showSignupNotice: function(noticeText) {
+    this.ui.signupNotice.text(noticeText);
+  },
+  
+  clearSignupFields: function() {
+    this.ui.signupEmail.val('');
+    this.ui.signupPassword.val('');
   }
 });
