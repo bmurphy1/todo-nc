@@ -13,13 +13,15 @@ TodoItemView = Marionette.ItemView.extend({
     this.ui.checkbox.prop('checked', this.model.get('is_complete'));
   },
   
+  modelEvents: {'change:description': 'render'},
+  
   editTodo: function() {
     TodoApp.execute('todo:edit', this.model);
   },
   
   toggleComplete: function() { this.model.toggleComplete(); },
-
 });
+
 
 TodoListView = Marionette.CompositeView.extend({
   template: '#todo-list-view',
@@ -33,6 +35,8 @@ TodoListView = Marionette.CompositeView.extend({
   
   events: { 'click @ui.bulkComplete': 'bulkToggleComplete' },
 
+  collectionEvents: { 'add': 'render' },
+  
   onRender: function() {
     window.views = this.children;
     this.ui.tbody.sortable();
