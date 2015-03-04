@@ -17,7 +17,8 @@ TodoItemView = Marionette.ItemView.extend({
     TodoApp.execute('todo:edit', this.model);
   },
   
-  toggleComplete: function() { this.model.toggleComplete(); }
+  toggleComplete: function() { this.model.toggleComplete(); },
+
 });
 
 TodoListView = Marionette.CompositeView.extend({
@@ -26,9 +27,30 @@ TodoListView = Marionette.CompositeView.extend({
   className: 'table',
   id: 'todos',
   childView: TodoItemView,
-  ui: {'tbody': 'tbody'},
   
+  ui: {    'tbody': 'tbody',
+      bulkComplete: '#bulk-complete' },
+  
+  events: { 'click @ui.bulkComplete': 'bulkToggleComplete' },
+
   onRender: function() {
+    window.views = this.children;
     this.ui.tbody.sortable();
+  },
+  
+  bulkToggleComplete: function() {
+    if (this.ui.bulkComplete.prop('checked')) {
+      _.each(this.children._views, function(view) {view.ui.checkbox.prop('checked', true)});
+      _.each(this.collection.models, function(model) {
+        model.set('is_complete', true);
+        model.save();  
+      });
+    } else {
+      _.each(this.children._views, function(view) {view.ui.checkbox.prop('checked', false)});
+      _.each(this.collection.models, function(model) {
+        model.set('is_complete', false);
+        model.save;
+      });
+    }
   }
 });
