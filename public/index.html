@@ -22,7 +22,7 @@
     <script type="text/javascript" src="js/header/header_controller.js"></script>
     <script type="text/javascript" src="js/header/header_view.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="css/jquery-ui.css" type="text/css">
@@ -34,7 +34,7 @@
     <div id="container"></div>
     <div id="todo-new"></div>
     <div id="todo-edit"></div>
-    
+
 <!-- Header -->
     <script type="text/template" id="header-view">
       <nav class="navbar navbar-default">
@@ -43,7 +43,7 @@
         </ul>
       </nav>
     </script>
-    
+
 <!-- Login View -->
     <script type="text/template" id="login-view">
       <div role="tabpanel">
@@ -83,7 +83,7 @@
 
       </div>
     </script>
-    
+
 <!-- Todo List View -->
     <script type="text/template" id="todo-list-view">
       <thead>
@@ -95,26 +95,26 @@
       </thead>
       <tbody class="sortable"></tbody>
     </script>
-    
+
 <!-- Todo Item View -->
     <script type="text/template" id="todo-item-view">
       <td><%= description %></td>
       <td><input id="is-complete" type="checkbox"></td>
       <Td><input id="edit" class="btn btn-xs" type="button" value="edit"></td>
     </script>
-    
+
 <!-- New Todo View -->
     <script type="text/template" id="todo-new-view">
       <input type="text" id="description" name="description" placeholder="description"></input>
       <input type="submit" id="submit" value="save"></input>
     </script>
-    
+
 <!-- Edit Todo View -->
     <script type="text/template" id="todo-edit-view">
       <input type="text" id="description" name="description" value="<%= description %>"></input>
       <input type="submit" id="submit" class="btn" value="save"></input>
     </script>
-    
+
 <!-- Start App -->
     <script type="text/javascript">
       $(document).ready(function() {
