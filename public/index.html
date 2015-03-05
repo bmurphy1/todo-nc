@@ -33,7 +33,6 @@
     <div id="header"></div>
     <div id="login" class="container"></div>
     <div id="container" class="container"></div>
-    <div id="todo-edit"></div>
 
 <!-- Header -->
     <script type="text/template" id="header-view">
@@ -133,8 +132,21 @@
 
 <!-- Edit Todo View -->
     <script type="text/template" id="todo-edit-view">
-      <input type="text" id="description" name="description" value="<%= description %>"></input>
-      <input type="submit" id="submit" class="btn" value="save"></input>
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">New Todo</h4>
+          </div>
+          <div class="modal-body">
+            <input type="text" id="description" name="description" placeholder="description" value="<%= description %>"></input>
+          </div>
+          <div class="modal-footer">
+            <input type="submit" id="submit" data-dismiss="modal" value="Save"></input>
+          </div>
+        </div>
+      </div>
     </script>
 
 <!-- Start App -->
