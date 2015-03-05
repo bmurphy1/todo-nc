@@ -21,6 +21,10 @@ TodoApp.commands.setHandler('todo:edit', function(model) {
   window.todoEditController = new TodoEditController(model);
 });
 
+TodoApp.commands.setHandler('todo:new', function() {
+  window.todoNewController = new TodoNewController();
+});
+
 TodoApp.commands.setHandler('logout', function() {
   window.todoListController.destroy();
   window.headerController.destroy();

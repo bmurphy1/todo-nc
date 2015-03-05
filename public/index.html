@@ -29,10 +29,10 @@
     <link rel="stylesheet" href="css/todo.css" type="text/css">
   </head>
   <body>
+    <div id="modal" class="modal fade" role="dialog" aria-hidden="true"></div>
     <div id="header"></div>
     <div id="login" class="container"></div>
     <div id="container" class="container"></div>
-    <div id="todo-new"></div>
     <div id="todo-edit"></div>
 
 <!-- Header -->
@@ -43,7 +43,7 @@
             <a class="navbar-brand" href="#">Todos-NC</a>
           </div>
           <ul class="nav navbar-nav">
-            <li><button type="button" class="btn btn-default btn-primary navbar-btn">New Todo</button></li>
+            <li><button type="button" id="todo-new-button" class="btn btn-default btn-primary navbar-btn">New Todo</button></li>
             <li><button type="submit" id="logout-button" class="btn btn-default navbar-btn">Logout</button></li>
           </ul>
         </div>
@@ -115,8 +115,20 @@
 
 <!-- New Todo View -->
     <script type="text/template" id="todo-new-view">
-      <input type="text" id="description" name="description" placeholder="description"></input>
-      <input type="submit" id="submit" value="save"></input>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">New Todo</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" id="description" name="description" placeholder="description"></input>
+            </div>
+            <div class="modal-footer">
+              <input type="submit" id="submit" data-dismiss="modal" value="Save"></input>
+            </div>
+          </div>
+        </div>
     </script>
 
 <!-- Edit Todo View -->
