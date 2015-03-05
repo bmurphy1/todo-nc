@@ -7,8 +7,8 @@ TodoItem = Backbone.Model.extend({
             description: model.get('description'),
             is_complete: false
           },
-          success:  function(todo) { console.log(todo); return todo },
-          error:    function(xhr)  { console.log(xhr); return xhr }
+          success:  function(todo) { return todo },
+          error:    function(xhr)  { return xhr }
         });
         break;
       case 'update':

@@ -11,7 +11,6 @@ HeaderView = Marionette.ItemView.extend({
     var view = this;
     Todo.endSession({
       success: function(todo) {
-        console.log('logout success!');
         TodoApp.execute('logout');
         view.destroy();
       },
