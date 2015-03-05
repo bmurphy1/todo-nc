@@ -1,0 +1,10 @@
+{
+  "name": "todo-nc",
+  "version": "0.0.1",
+  "description": "Todo app in Backbone.Marionette using given external API",
+  "dependencies": {
+    "express": "^4.6.1",
+    "mocha": "^1.21.3",
+    "sinon": "^1.10.3"
+  }
+}
