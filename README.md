@@ -22,11 +22,20 @@ Project to meet the following requirements:
 ```
 git clone https://github.com/bmurphy1/todo-nc.git
 ```
+- Setup environment:
+```
+make clean
+make env
+```
 - Start Node server:
 ```
-node server.js
+make run
 ```
 - View in browser:
 ```
 http://localhost:9000
+```
+- Run tests (ensure node server is running first):
+```
+make tests
 ```
