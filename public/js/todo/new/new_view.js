@@ -10,6 +10,6 @@ TodoNewView = Marionette.ItemView.extend({
   submit: function() {
     if(description == '') return;
     this.model.save({'description': this.ui.description.val(), 'is_complete': false});
-    window.todoListController.todoList.add(this.model);
+    TodoApp.todoListController.todoList.add(this.model);
   }
 });

@@ -13,8 +13,8 @@ TodoApp.on('start', function(options) {
 });
 
 TodoApp.commands.setHandler('todo:list', function() {
-  window.todoListController = new TodoListController();
-  window.headerController = new HeaderController();
+  TodoApp.todoListController = new TodoListController();
+  TodoApp.headerController = new HeaderController();
 });
 
 TodoApp.commands.setHandler('todo:edit', function(model) {
@@ -26,7 +26,7 @@ TodoApp.commands.setHandler('todo:new', function() {
 });
 
 TodoApp.commands.setHandler('logout', function() {
-  window.todoListController.destroy();
-  window.headerController.destroy();
+  TodoApp.todoListController.destroy();
+  TodoApp.headerController.destroy();
   new SessionController();
 });
