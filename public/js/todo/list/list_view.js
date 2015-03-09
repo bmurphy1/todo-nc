@@ -38,7 +38,6 @@ TodoListView = Marionette.CompositeView.extend({
   collectionEvents: { 'update': 'render' },
 
   onRender: function() {
-    window.views = this.children;
     this.ui.tbody.sortable();
   },
 

@@ -1,7 +1,7 @@
 TodoNewController = Marionette.Controller.extend({
   initialize: function() {
     var todoItem = new TodoItem();
-    window.todoNewView = new TodoNewView({model: todoItem});
+    var todoNewView = new TodoNewView({model: todoItem});
     todoNewView.render();
 
     var $modalEl = $('#modal');

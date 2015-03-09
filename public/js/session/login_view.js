@@ -1,11 +1,8 @@
 SessionView = Marionette.ItemView.extend({
-  initialize: function() {
-    window.loginView = this;
-  },
   template: '#login-view',
   tagname: 'form',
   id: 'login-view-form',
-  
+
   ui: {
     'loginEmail': '#login-email',
     'loginPassword': '#login-password',
@@ -16,19 +13,19 @@ SessionView = Marionette.ItemView.extend({
     'loginNotice': '#login-notice',
     'signupNotice': '#signup-notice'
   },
-  
+
   events: {
     'click @ui.loginButton': 'login',
     'click @ui.signupButton': 'signup'
   },
-  
+
   login: function () {
     var view = this;
-    
+
     Todo.startSession({
       email:    view.ui.loginEmail.val(),
       password: view.ui.loginPassword.val(),
-      success:  function(user) { 
+      success:  function(user) {
         view.destroy();
         TodoApp.execute('todo:list');
       },
@@ -37,10 +34,10 @@ SessionView = Marionette.ItemView.extend({
       }
     });
   },
-  
+
   signup: function() {
     var view = this;
-    
+
     Todo.createUser({
       email:    view.ui.signupEmail.val(),
       password: view.ui.signupPassword.val(),
@@ -53,15 +50,15 @@ SessionView = Marionette.ItemView.extend({
       }
     });
   },
-  
+
   showLoginNotice: function(noticeText) {
     this.ui.loginNotice.text(noticeText);
   },
-  
+
   showSignupNotice: function(noticeText) {
     this.ui.signupNotice.text(noticeText);
   },
-  
+
   clearSignupFields: function() {
     this.ui.signupEmail.val('');
     this.ui.signupPassword.val('');

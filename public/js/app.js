@@ -18,11 +18,11 @@ TodoApp.commands.setHandler('todo:list', function() {
 });
 
 TodoApp.commands.setHandler('todo:edit', function(model) {
-  window.todoEditController = new TodoEditController(model);
+  var todoEditController = new TodoEditController(model);
 });
 
 TodoApp.commands.setHandler('todo:new', function() {
-  window.todoNewController = new TodoNewController();
+  var todoNewController = new TodoNewController();
 });
 
 TodoApp.commands.setHandler('logout', function() {

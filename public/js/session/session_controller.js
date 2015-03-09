@@ -1,6 +1,6 @@
 SessionController = Marionette.Controller.extend({
   initialize: function() {
-    window.sessionView = new SessionView();
+    var sessionView = new SessionView();
     TodoApp.loginRegion.show(sessionView);
   }
 });
