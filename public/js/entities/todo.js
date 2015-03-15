@@ -7,7 +7,7 @@ TodoItem = Backbone.Model.extend({
             description: model.get('description'),
             is_complete: false
           },
-          success:  function(todo) { return todo },
+          success:  function(todo) { model.set('id', todo.id); },
           error:    function(xhr)  { return xhr }
         });
         break;

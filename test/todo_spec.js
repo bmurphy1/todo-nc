@@ -1,6 +1,7 @@
 describe('TodoItem.sync', function() {
 
   beforeEach(function() {
+    Todo.USER = {id: 3, email: 'test@test.com', api_token:'abc123'};
     spyOn(Todo, 'createTodo');
     spyOn(Todo, 'updateTodo');
   });
@@ -17,6 +18,23 @@ describe('TodoItem.sync', function() {
     todoItem.save();
 
     expect(Todo.updateTodo).toHaveBeenCalled();
+  });
+});
+
+describe('TodoItem.sync ajax', function() {
+  it('create should set model.id to that of returned value', function() {
+    jasmine.Ajax.install();
+
+    var todoItem = new TodoItem({description: 'buy milk', is_complete: false});
+    todoItem.save();
+
+    jasmine.Ajax.requests.mostRecent().respondWith({
+      status: 200,
+      responseText: JSON.stringify({id: 42})
+    });
+
+    expect(todoItem.get('id')).toEqual(42);
+    jasmine.Ajax.uninstall();
   });
 });
 
